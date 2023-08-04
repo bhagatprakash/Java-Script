@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>linces task</title>
+  </head>
+
+  <style>
+    body {
+      background-color: bisque;
+    }
+    h1 {
+      margin-left: 40%;
+      margin-top: 30px;
+    }
+    #input {
+      margin-left: 40%;
+      margin-top: 30px;
+    }
+    #ans {
+      margin-left: 40%;
+      margin-top: 30px;
+    }
+  </style>
+  <body>
+    <h1>Switch Task :-</h1>
+    <input type="text" id="input" />
+    <button onclick="display()">Submit</button>
+
+    <h2 id="ans"></h2>
+
+    <script>
+      function display() {
+        var input = document.getElementById("input").value;
+
+        switch (Number(input)) {
+          case input >= 18:
+            document.getElementById("ans").innerHTML = "you are Eligible";
+            break;
+
+          default:
+            document.getElementById("ans").innerHTML = "you are not Eligible";
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

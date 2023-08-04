@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week</title>
+  </head>
+  <style>
+    body {
+      background-color: bisque;
+    }
+
+    h1 {
+      /* margin-left: 20%; */
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #input {
+      margin-left: 40%;
+      margin-top: 30px;
+    }
+
+    #ans {
+      margin-left: 40%;
+      margin-top: 30px;
+    }
+  </style>
+
+  <body>
+    <h1>
+      Enter :- (Enter Numbar) ,(Enter Alfabet) ,(Enter Small letter), (Enter
+      Symbol)
+    </h1>
+
+    <input type="text" id="input" />
+
+    <button onclick="display()">Submit</button>
+
+    <h2 id="ans"></h2>
+    <h2 id="ans1"></h2>
+
+    <script>
+      function display() {
+        var input = document.getElementById("input").value;
+
+        if (input >= 0) {
+          document.getElementById("ans").innerHTML = "This is Numbar";
+        } else if (input >= "a" && input <= "z") {
+          document.getElementById("ans").innerHTML = "This is Small letter";
+        } else if (input >= "A" && input <= "Z") {
+          document.getElementById("ans").innerHTML = "This is  Alfabet";
+        } else if (
+          input >= "!" ||
+          input == "@" ||
+          input == "#" ||
+          input == "$" ||
+          input == "*" ||
+          input == "+" ||
+          input == "-" ||
+          input == "%"
+        ) {
+          document.getElementById("ans").innerHTML += "This is Symbol";
+        }
+      }
+    </script>
+  </body>
+</html>
