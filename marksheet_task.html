@@ -5,5 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> </title>
   </head>
-  <body></body>
+  <style>
+    body {
+      background-color: rgba(109, 176, 177, 0.274);
+    }
+    h1 {
+      text-align: center;
+      text-decoration: underline;
+    }
+    table {
+      text-align: center;
+      font-size: larger;
+      margin: auto;
+    }
+    button {
+      margin-left: 45%;
+
+      padding: 10px 20px;
+      font-weight: bold;
+      background-color: coral;
+    }
+  </style>
+  <body>
+    <h1>Mark Sheet :--</h1>
+    <br />
+
+    <table border="0" cellspacing="10" cellpadding="10">
+      <tr>
+        <th>No</th>
+        <th>Maths</th>
+        <th>English</th>
+        <th>Gujarati</th>
+        <th>Science</th>
+        <th>Socile Science</th>
+        <th>Total</th>
+        <th>per (%)</th>
+      </tr>
+
+      <tr>
+        <th id="no"></th>
+        <th id="sub1"></th>
+        <th id="sub2"></th>
+        <th id="sub3"></th>
+        <th id="sub4"></th>
+        <th id="sub5"></th>
+        <th id="total"></th>
+        <th id="per"></th>
+      </tr>
+    </table>
+    <button type="button" onclick="click();">Submit</button>
+
+    <script>
+      function click() {
+        var no = prompt("Enter No");
+        var sub1 = Number(prompt("Enter your maths mark"));
+        var sub2 = Number(prompt("Enter your english mark"));
+        var sub3 = Number(prompt("Enter your gujarati mark"));
+        var sub4 = Number(prompt("Enter your science mark"));
+        var sub5 = Number(prompt("Socile Science"));
+
+        var total = sub1 + sub2 + sub3 + sub4 + sub5;
+
+        var per = (total / 5) * 100;
+
+        document.getElementById("no").innerHTML = no;
+        document.getElementById("sub1").innerHTML = sub1;
+        document.getElementById("sub2").innerHTML = sub2;
+        document.getElementById("sub3").innerHTML = sub3;
+        document.getElementById("sub4").innerHTML = sub4;
+        document.getElementById("sub5").innerHTML = sub5;
+
+        document.getElementById("total").innerHTML = total;
+        document.getElementById("per").innerHTML = per;
+      }
+    </script>
+  </body>
 </html>

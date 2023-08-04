@@ -34,14 +34,13 @@
       function display() {
         var input = document.getElementById("input").value;
 
-        switch (Number(input)) {
+        switch (true) {
           case input >= 18:
-            document.getElementById("ans").innerHTML = "you are Eligible";
+            document.getElementById("ans").innerHTML = "Eligible";
             break;
 
           default:
-            document.getElementById("ans").innerHTML = "you are not Eligible";
-            break;
+            document.getElementById("ans").innerHTML = "NOT Eligible";
         }
       }
     </script>
