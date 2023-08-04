@@ -20,7 +20,6 @@
     }
     button {
       margin-left: 45%;
-
       padding: 10px 20px;
       font-weight: bold;
       background-color: coral;
@@ -52,21 +51,32 @@
         <th id="total"></th>
         <th id="per"></th>
       </tr>
+
+      <tr>
+        <th id="no"></th>
+        <th id="sub1"></th>
+        <th id="sub2"></th>
+        <th id="sub3"></th>
+        <th id="sub4"></th>
+        <th id="sub5"></th>
+        <th id="total"></th>
+        <th id="per"></th>
+      </tr>
     </table>
-    <button type="button" onclick="click();">Submit</button>
+    <button type="button" onclick="record()">Submit</button>
 
     <script>
-      function click() {
+      function record() {
         var no = prompt("Enter No");
         var sub1 = Number(prompt("Enter your maths mark"));
         var sub2 = Number(prompt("Enter your english mark"));
         var sub3 = Number(prompt("Enter your gujarati mark"));
         var sub4 = Number(prompt("Enter your science mark"));
-        var sub5 = Number(prompt("Socile Science"));
+        var sub5 = Number(prompt("Enter your Socile Science mark"));
 
         var total = sub1 + sub2 + sub3 + sub4 + sub5;
 
-        var per = (total / 5) * 100;
+        var percentage = (total * 100) / 500;
 
         document.getElementById("no").innerHTML = no;
         document.getElementById("sub1").innerHTML = sub1;
@@ -76,7 +86,7 @@
         document.getElementById("sub5").innerHTML = sub5;
 
         document.getElementById("total").innerHTML = total;
-        document.getElementById("per").innerHTML = per;
+        document.getElementById("per").innerHTML = percentage + "%";
       }
     </script>
   </body>
