@@ -104,16 +104,16 @@
 
       document.getElementById("end-date").innerText = endDate;
 
-      // console.log(endDate);
+      console.log(endDate);
 
       function display() {
-        const end = new Date(endDate);
+        const ends = new Date(endDate);
         const now = new Date();
 
-        console.log(end);
+        console.log(ends);
         console.log(now);
 
-        const difr = end - now;
+        const difr = ends - now;
 
         console.log(difr);
       }
