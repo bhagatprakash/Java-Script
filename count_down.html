@@ -21,7 +21,7 @@
     .main {
       width: 100%;
       height: 100vh;
-      background: url(./istockphoto-1471218521-2048x2048.jpg);
+      background: url(./IMAGE/istockphoto-1471218521-2048x2048.jpg);
     }
 
     .overlay {
@@ -70,7 +70,7 @@
     <div class="main">
       <div class="overlay">
         <div class="title">We are Comming Soon</div>
-        <div class="title" id="end-date">23 March 2022 10:00 PM</div>
+        <div class="title" id="end-date">20 March 2022 10:00 PM</div>
         <div class="col">
           <div>
             <input type="text" readonly value="0" />
@@ -100,26 +100,25 @@
     </div>
 
     <script>
-      const endDate = "21 Auguest 2023 18:44 pm";
-
+      const endDate = "07 august 2023 10:00 PM";
       document.getElementById("end-date").innerText = endDate;
 
-      console.log(endDate);
+      const inputs = document.querySelectorAll("input");
 
-      function display() {
-        const ends = new Date(endDate);
+      function clock() {
+        const end = new Date(endDate);
         const now = new Date();
 
-        console.log(ends);
-        console.log(now);
+        const diff = end - now;
+        console.log(diff);
 
-        const difr = ends - now;
+        //  convert in to date :-
 
-        console.log(difr);
+        inputs[0].value = Math.floor(diff / 3600 / 24);
       }
-
-      display();
+      clock();
     </script>
+
     <!-- js link  -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>

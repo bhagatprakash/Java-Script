@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>colour-genration</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      transition: 2s;
+    }
+    .main {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 30rem;
+
+      background-color: white;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 40px;
+      text-align: center;
+    }
+    button {
+      margin-top: 5px;
+      font-size: 30px;
+      display: block;
+      width: 100%;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <div class="main">
+      <div class="container">
+        <h1 id="color_code">Dipak</h1>
+        <button id="btn">Click me</button>
+      </div>
+    </div>
+    <script>
+      const getcolor = () => {
+        const randomNumbar = Math.floor(Math.random() * 16777215);
+        const randomCoad = "#" + randomNumbar.toString(16);
+
+        document.body.style.backgroundColor = randomCoad;
+        document.getElementById("color_code").innerText = randomCoad;
+
+        console.log(randomNumbar, randomCoad);
+
+        // NOTE :-- color coad copy karne ke liye
+
+        navigator.clipboard.writeText(randomCoad);
+      };
+
+      document.getElementById("btn").addEventListener("click", getcolor);
+
+      getcolor();
+    </script>
+  </body>
+</html>
