@@ -100,7 +100,7 @@
     </div>
 
     <script>
-      const endDate = "07 august 2023 10:00 PM";
+      const endDate = "08 august 2023 10:00 PM";
       document.getElementById("end-date").innerText = endDate;
 
       const inputs = document.querySelectorAll("input");
@@ -110,13 +110,22 @@
         const now = new Date();
 
         const diff = end - now;
-        console.log(diff);
 
-        //  convert in to date :-
+        const days = Math.floor(diff / 1000 / 60 / 60 / 24);
+        const hours = Math.floor(diff / 1000 / 60 / 60) - 24 * days;
+        const Minutes =
+          Math.floor(diff / 1000 / 60) - 60 * 24 * days - 60 * hours;
+        const Seconds = 60 - new Date().getSeconds();
 
-        inputs[0].value = Math.floor(diff / 3600 / 24);
+        inputs[0].value = days;
+        inputs[1].value = hours;
+        inputs[2].value = Minutes;
+        inputs[3].value = Seconds;
       }
-      clock();
+
+      setInterval(() => {
+        clock();
+      }, 1000);
     </script>
 
     <!-- js link  -->
