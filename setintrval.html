@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>set_intrval</title>
+  </head>
+  <style>
+    .box {
+      height: 100px;
+      width: 100px;
+      background: chartreuse;
+    }
+  </style>
+  <body>
+    <div class="box" id="show"></div>
+    <script>
+      var a = 0;
+      var stop = setInterval(display, 1000);
+
+      //   clearInterval(stop);
+
+      function display() {
+        a = a + 10;
+
+        if (a == 200) {
+          clearInterval(stop);
+        } else {
+          var styles = document.getElementById("show");
+          styles.style.marginLeft = a + "px";
+        }
+      }
+    </script>
+  </body>
+</html>

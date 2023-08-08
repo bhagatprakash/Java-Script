@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: bisque;
+      }
+
+      input {
+        margin-top: 50px;
+        padding: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Enter tag Name & Enter your Text :--</h1>
+    <input type="text" id="tag" placeholder="enter your tag" />
+
+    <input type="text" id="name" placeholder="enter your name" />
+
+    <button onclick="display()">submit</button>
+
+    <p id="show"></p>
+
+    <script>
+      function display() {
+        var tag = document.getElementById("tag").value;
+        var name = document.getElementById("name").value;
+
+        document.getElementById("show").innerHTML =
+          "<" + tag + ">" + name + "</" + tag + ">";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>set-time out</title>
+  </head>
+  <style>
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: rgb(97, 214, 225);
+    }
+  </style>
+  <body>
+    <div class="box" id="a1"></div>
+
+    <br />
+    <button onclick="stopanimesan()">Stop Anim</button>
+    <script>
+      var id = setTimeout(display, 3000);
+
+      function display() {
+        var target = document.getElementById("a1");
+        target.style.width = "500px";
+      }
+
+      function stopanimesan() {
+        clearTimeout(id);
+      }
+    </script>
+  </body>
+</html>
