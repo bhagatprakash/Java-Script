@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>marksheet-multipal value</title>
+  </head>
+  <style>
+    button {
+      font-size: larger;
+    }
+    .tds {
+      font-size: larger;
+    }
+    body {
+      background-color: rgb(179, 233, 233);
+    }
+  </style>
+  <body>
+    <h1>Mark Sheet :--</h1>
+    <br />
+
+    <table border="0" cellspacing="10" cellpadding="10">
+      <thead class="tds">
+        <th>No</th>
+        <th>Name</th>
+        <th>Maths</th>
+        <th>English</th>
+        <th>Gujarati</th>
+        <th>Science</th>
+        <th>Socile Science</th>
+        <th>Total</th>
+        <th>per (%)</th>
+        <th>Grade</th>
+        <th>Result</th>
+      </thead>
+      <tbody id="mark-tbody"></tbody>
+    </table>
+
+    <br />
+    <br />
+    <br />
+
+    <button onclick="display()">Submit</button>
+    <br />
+
+    <script>
+      function display() {
+        var no = prompt("Enter No");
+        var name = prompt("enter your name");
+        var sub1 = Number(prompt("Enter your maths mark"));
+        var sub2 = Number(prompt("Enter your english mark"));
+        var sub3 = Number(prompt("Enter your gujarati mark"));
+        var sub4 = Number(prompt("Enter your science mark"));
+        var sub5 = Number(prompt("Enter your Socile Science mark"));
+
+        var total = sub1 + sub2 + sub3 + sub4 + sub5;
+
+        var percentage = (total * 100) / 500;
+
+        var grade = "";
+
+        var result = "";
+
+        if (percentage <= 100) {
+          if (percentage >= 95) {
+            grade = "A+";
+            result = "pass";
+          } else if (percentage >= 84 && percentage <= 94) {
+            grade = "A";
+            result = "pass";
+          } else if (percentage >= 69 && percentage <= 83) {
+            grade = "B+";
+            result = "pass";
+          } else if (percentage >= 49 && percentage <= 68) {
+            grade = "c";
+            result = "pass";
+          } else if (percentage >= 33 && percentage <= 48) {
+            grade = "d";
+            result = "pass";
+          } else if (percentage <= 32) {
+            grade = "F";
+            result = "Fail";
+          }
+        } else {
+          alert("ENTER VALID MARKS");
+          percentage = "_ _";
+          grade = "--";
+          result = "--";
+        }
+
+        document.getElementById("mark-tbody").innerHTML +=
+          `<tr>
+           <td>` +
+          no +
+          `</td>
+               <td>` +
+          name +
+          `</td>
+
+              <td>` +
+          sub1 +
+          `</td>
+
+                  <td>` +
+          sub2 +
+          `</td>
+
+                      <td>` +
+          sub3 +
+          `</td>
+
+                          <td>` +
+          sub4 +
+          `</td>
+
+                              <td>` +
+          sub5 +
+          `</td>
+
+                                  <td>` +
+          total +
+          `</td>
+                                  <td>` +
+          percentage +
+          `</td>
+          <td>` +
+          grade +
+          `</td>
+          <td>` +
+          result +
+          `</td>
+        </tr`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>local-storage</title>
+  </head>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      font-family: sans-serif;
+    }
+
+    form {
+      width: 500px;
+      margin: auto;
+      box-shadow: 0px 0px 10px 2px #ccc;
+      padding: 10px;
+    }
+
+    h2 {
+      padding: 10px 0px;
+    }
+    form label {
+      display: block;
+      font-size: 16px;
+    }
+    form input {
+      width: 100%;
+      height: 30px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: bisque;
+      font-size: large;
+      padding: 8px 20px;
+    }
+    .main {
+      width: 1320px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .item {
+      flex-basis: 23%;
+      margin: 1%;
+      box-shadow: 0px 0px 10px 2px #ccc;
+      position: relative;
+    }
+
+    .item span {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    h5 {
+      margin-top: 10px;
+    }
+  </style>
+  <body>
+    <form class="action">
+      <h2>Enquiry Now</h2>
+
+      <label>Name :-</label>
+      <input type="text" name="uname" />
+
+      <label>Email :-</label>
+      <input type="email" name="email" />
+
+      <label>Phone :-</label>
+      <input type="text" name="phone" />
+
+      <button>Save</button>
+    </form>
+
+    <div class="main"></div>
+
+    <script>
+      let form = document.querySelector("form");
+      let main = document.querySelector(".main");
+
+      form.addEventListener("submit", (event) => {
+        console.log(event);
+        let name = event.target.uname.value;
+        let email = event.target.email.value;
+        let phone = event.target.phone.value;
+
+        // console.log("name", name);
+        let userData = JSON.parse(localStorage.getItem("userdatails")) ?? [];
+        userData.push({
+          name: name,
+          email: email,
+          phone: phone,
+        });
+
+        localStorage.setItem("userdatails", JSON.stringify(userData));
+        event.target.reset();
+        displayData();
+        // console.log(userData);
+        // console.log(name, email, phone);
+
+        event.preventDefault();
+      });
+
+      let displayData = () => {
+        let userData = JSON.parse(localStorage.getItem("userdatails")) ?? [];
+        let finalData = "";
+        userData.forEach((element, i) => {
+          // console.log(element);
+
+          finalData += ` <div class="item">
+                       <span onclick='removeData(${i})'>&times;</span>
+
+                        <h5>Name</h5>
+                        <div>${element.name}</div>
+
+                        <h5>Email</h5>
+                        <div>${element.email}</div>
+
+                        <h5>Phone Numbar</h5>
+                        <div>${element.phone}</div>
+
+                      </div>`;
+        });
+        main.innerHTML = finalData;
+        // console.log(finalData);
+      };
+
+      let removeData = (index) => {
+        console.log("index", index);
+        let userData = JSON.parse(localStorage.getItem("userdatails")) ?? [];
+        userData.splice(index, 1);
+
+        localStorage.setItem("userdatails", JSON.stringify(userData));
+        displayData();
+      };
+      displayData();
+    </script>
+  </body>
+</html>
